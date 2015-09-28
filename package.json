@@ -1,6 +1,6 @@
 {
   "name": "ember-macaroni",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Delicious computed property macaronis (macros) for Ember.js",
   "directories": {
     "doc": "doc",
