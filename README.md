@@ -1,6 +1,6 @@
-# ember-macaroni [![Build Status](https://travis-ci.org/poteto/ember-macaroni.svg?branch=master)](https://travis-ci.org/poteto/ember-macaroni)
+# ember-macaroni [![npm version](https://badge.fury.io/js/ember-macaroni.svg)](http://badge.fury.io/js/ember-macaroni) [![Build Status](https://travis-ci.org/poteto/ember-macaroni.svg?branch=master)](https://travis-ci.org/poteto/ember-macaroni)
 
-Delicious computed property macaronis (macros) for Ember.js 1.13x and greater.
+Delicious computed property macaronis (macros) for Ember.js 1.13.x and greater.
 
 ![](http://i.imgur.com/XV4VFJl.jpg)
 
@@ -36,10 +36,10 @@ export default Ember.Component.extend({
 
 #### `findFromCollectionByKey(collectionKey, propName, valueKey)`
 
+Returns the first item with a property matching the passed value from a dependent key.
+
 ```js
 /** 
- * Returns the first item with a property matching the passed value from a dependent key.
- * 
  * Ember.Object.extend({
  *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
  *   selectedId: 1,
@@ -54,10 +54,10 @@ export default Ember.Component.extend({
 
 #### `findFromCollectionByValue(collectionKey, propName, value)`
 
+Returns the first item with a property matching the passed value.
+
 ```js
 /** 
- * Returns the first item with a property matching the passed value.
- *
  * Ember.Object.extend({
  *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
  *   selectedItem: findFromCollectionByKey('items', 'id', 1) // { id: 1, name: 'foo' }
@@ -71,10 +71,10 @@ export default Ember.Component.extend({
 
 #### `rejectFromCollectionByKey(collectionKey, propName, valueKey)`
 
+Returns an array with the items that do not match the passed value from a dependent key.
+
 ```js
 /** 
- * Returns an array with the items that do not match the passed value from a dependent key.
- * 
  * Ember.Object.extend({
  *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
  *   selectedId: 2,
@@ -89,10 +89,10 @@ export default Ember.Component.extend({
 
 #### `rejectFromCollectionByValue(collectionKey, propName, value)`
 
+Returns an array with the items that do not match the passed value.
+
 ```js
 /** 
- * Returns an array with the items that do not match the passed value.
- * 
  * Ember.Object.extend({
  *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
  *   selectedItem: rejectFromCollectionByValue('items', 'id', 2) // [{ id: 1, name: 'foo' }]
@@ -106,10 +106,10 @@ export default Ember.Component.extend({
 
 #### `filterFromCollectionByKey(collectionKey, propName, valueKey)`
 
+Returns an array with just the items with the matched property.
+
 ```js
 /** 
- * Returns an array with just the items with the matched property.
- *
  * Ember.Object.extend({
  *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
  *   selectedId: 1,
@@ -124,10 +124,10 @@ export default Ember.Component.extend({
 
 #### `filterCollectionByContains(collectionKey, propName, values)`
 
+Returns an array with just the items that are contained in another array.
+
 ```js
 /** 
- * Returns an array with just the items that are contained in another array.
- * 
  * Ember.Object.extend({
  *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
  *   selectedId: 1,
@@ -140,12 +140,30 @@ export default Ember.Component.extend({
 */
 ```
 
+#### `collectionWithoutKey(collectionKey, dependentKey)`
+
+Returns an array without an item by dependent key.
+
+```js
+/**
+ * Ember.Object.extend({
+ *   items: [1, 2, 3],
+ *   selectedItem: 1,
+ *   remainingItems: collectionWithoutKey('items', 'selectedItem') // [2, 3]
+ * });
+ *
+ * @param {String} collectionKey The key name for the collection
+ * @param {String} propName The key name for the property to filter by
+ * @param {Array} values The array of values to filter
+*/
+```
+
 #### `reduceCollectionByKey(collectionKey, dependentKey, startValue)`
+
+Combines the values of the enumerator into a single value, using a dependent key.
 
 ```js
 /** 
- * Combines the values of the enumerator into a single value, using a dependent key.
- * 
  * Ember.Object.extend({
  *   items: [{ name: 'foo', age: 2 }, { name: 'bar', age: 5 }],
  *   selectedItem: reduceCollectionByKey('items', 'age', 0) // 7
@@ -159,10 +177,10 @@ export default Ember.Component.extend({
 
 #### `isEqualByKeys(firstKey, secondKey)`
 
+Strict equality using dependent keys.
+
 ```js
 /** 
- * Strict equality using dependent keys.
- * 
  * Ember.Object.extend({
  *   employeeId: 1
  *   selectedId: 1,
@@ -176,10 +194,10 @@ export default Ember.Component.extend({
 
 #### `getPropertiesByKeys(...dependentKeys)`
 
+Returns a POJO containing all the key-values that match the dependent keys.
+
 ```js
 /** 
- * Returns a POJO containing all the key-values that match the dependent keys.
- * 
  * Ember.Object.extend({
  *   age: 5,
  *   name: 'foo',
@@ -192,10 +210,10 @@ export default Ember.Component.extend({
 
 #### `ifThenElseWithKeys(conditionalKey, trueKey, falseKey)`
 
+Ternary conditional with dependent keys.
+
 ```js
 /** 
- * Ternary conditional with dependent keys.
- * 
  * Ember.Object.extend({
  *   isSelected: true,
  *   selectedText: 'Is Enabled',
@@ -211,10 +229,10 @@ export default Ember.Component.extend({
 
 #### `ifThenElseWithValues(conditionalKey, trueValue, falseValue)`
 
+Ternary conditional.
+
 ```js
 /** 
- * Ternary conditional.
- * 
  * Ember.Object.extend({
  *   isSelected: true,
  *   displayText: ifThenElseWithKeys('isSelected', 'Is Enabled', 'Is Disabled') // 'Is Enabled'

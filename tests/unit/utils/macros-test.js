@@ -1,5 +1,18 @@
 import Ember from 'ember';
-import macros from 'ember-macaroni';
+import {
+  findFromCollectionByKey,
+  findFromCollectionByValue,
+  rejectFromCollectionByKey,
+  rejectFromCollectionByValue,
+  filterFromCollectionByKey,
+  filterCollectionByContains,
+  collectionWithoutKey,
+  reduceCollectionByKey,
+  isEqualByKeys,
+  getPropertiesByKeys,
+  ifThenElseWithKeys,
+  ifThenElseWithValues
+} from 'ember-macaroni';
 import { module, test } from 'qunit';
 
 const {
@@ -14,7 +27,7 @@ test('#findFromCollectionByKey finds an item from a collection with a dependent 
 
   const expectedResult = { id: 1, name: 'Tom Smykowski' };
   const Department = EmberObject.extend({
-    selectedEmployee: macros.findFromCollectionByKey('employees', 'id', 'selectedEmployeeId')
+    selectedEmployee: findFromCollectionByKey('employees', 'id', 'selectedEmployeeId')
   });
   const subject = Department.create({
     selectedEmployeeId: 1,
@@ -34,7 +47,7 @@ test('#findFromCollectionByValue finds an item from a collection with a value', 
 
   const expectedResult = { id: 1, name: 'Tom Smykowski' };
   const Department = EmberObject.extend({
-    selectedEmployee: macros.findFromCollectionByValue('employees', 'id', 1)
+    selectedEmployee: findFromCollectionByValue('employees', 'id', 1)
   });
   const subject = Department.create({
     selectedEmployeeId: 1,
@@ -57,7 +70,7 @@ test('#rejectFromCollectionByKey rejects an item from a collection with a depend
     { id: 2, name: 'Peter Gibbons' }
   ];
   const Department = EmberObject.extend({
-    remainingEmployees: macros.rejectFromCollectionByKey('employees', 'name', 'terminatedEmployeeName')
+    remainingEmployees: rejectFromCollectionByKey('employees', 'name', 'terminatedEmployeeName')
   });
   const subject = Department.create({
     terminatedEmployeeName: 'Michael Bolton',
@@ -80,7 +93,7 @@ test('#rejectFromCollectionByValue rejects an item from a collection with a valu
     { id: 2, name: 'Peter Gibbons' }
   ];
   const Department = EmberObject.extend({
-    remainingEmployees: macros.rejectFromCollectionByValue('employees', 'name', 'Michael Bolton')
+    remainingEmployees: rejectFromCollectionByValue('employees', 'name', 'Michael Bolton')
   });
   const subject = Department.create({
     employees: [
@@ -102,7 +115,7 @@ test('#filterFromCollectionByKey filters an item from a collection with a depend
     { id: 2, name: 'Peter Gibbons', age: 25 }
   ];
   const Department = EmberObject.extend({
-    selectedEmployees: macros.filterFromCollectionByKey('employees', 'age', 'selectedAge')
+    selectedEmployees: filterFromCollectionByKey('employees', 'age', 'selectedAge')
   });
   const subject = Department.create({
     selectedAge: 25,
@@ -122,7 +135,7 @@ test('#reduceCollectionByKey reduces a collection by a dependent key', (assert) 
 
   const expectedResult = 100;
   const Department = EmberObject.extend({
-    totalAge: macros.reduceCollectionByKey('employees', 'age')
+    totalAge: reduceCollectionByKey('employees', 'age')
   });
   const subject = Department.create({
     employees: [
@@ -142,7 +155,7 @@ test('#isEqualByKeys returns true if both dependent keys are equal in reference 
   const expectedResult = true;
   const fooObj = { name: 'foo' };
   const Department = EmberObject.extend({
-    isSelected: macros.isEqualByKeys('event', 'selectedEvent')
+    isSelected: isEqualByKeys('event', 'selectedEvent')
   });
   const subject = Department.create({
     event: fooObj,
@@ -158,7 +171,7 @@ test('#isEqualByKeys returns false if both dependent keys are not equal in refer
 
   const expectedResult = false;
   const Department = EmberObject.extend({
-    isSelected: macros.isEqualByKeys('event', 'selectedEvent')
+    isSelected: isEqualByKeys('event', 'selectedEvent')
   });
   const subject = Department.create({
     event: { name: 'foo' },
@@ -177,7 +190,7 @@ test('#getPropertiesByKeys returns a POJO with the specified keys and values fro
     lastName: 'Lumbergh'
   };
   const Employee = EmberObject.extend({
-    firstAndLastName: macros.getPropertiesByKeys('firstName', 'lastName')
+    firstAndLastName: getPropertiesByKeys('firstName', 'lastName')
   });
   const subject = Employee.create({
     firstName: 'Bill',
@@ -194,7 +207,7 @@ test('#ifThenElseWithKeys returns the `trueValue` if the conditional is true', (
 
   const expectedResult = 'Left job';
   const Employee = EmberObject.extend({
-    retirementStatus: macros.ifThenElseWithKeys('isRetired', 'retiredText', 'employedText')
+    retirementStatus: ifThenElseWithKeys('isRetired', 'retiredText', 'employedText')
   });
   const subject = Employee.create({
     retiredText: 'Left job',
@@ -211,7 +224,7 @@ test('#ifThenElseWithKeys returns the `falseValue` if the conditional is false',
 
   const expectedResult = 'Still employed';
   const Employee = EmberObject.extend({
-    retirementStatus: macros.ifThenElseWithKeys('isRetired', 'retiredText', 'employedText')
+    retirementStatus: ifThenElseWithKeys('isRetired', 'retiredText', 'employedText')
   });
   const subject = Employee.create({
     retiredText: 'Left job',
@@ -228,7 +241,7 @@ test('#ifThenElseWithValues returns the `trueValue` if the conditional is true',
 
   const expectedResult = 'Left job';
   const Employee = EmberObject.extend({
-    retirementStatus: macros.ifThenElseWithValues('isRetired', 'Left job', 'Still employed')
+    retirementStatus: ifThenElseWithValues('isRetired', 'Left job', 'Still employed')
   });
   const subject = Employee.create({
     isRetired: true
@@ -243,7 +256,7 @@ test('#ifThenElseWithValues returns the `falseValue` if the conditional is false
 
   const expectedResult = 'Still employed';
   const Employee = EmberObject.extend({
-    retirementStatus: macros.ifThenElseWithValues('isRetired', 'Left job', 'Still employed')
+    retirementStatus: ifThenElseWithValues('isRetired', 'Left job', 'Still employed')
   });
   const subject = Employee.create({
     isRetired: false
@@ -263,7 +276,7 @@ test('#filterCollectionByContains filters a collection by an array of values for
   ];
 
   const Tommy = EmberObject.extend({
-    friends: macros.filterCollectionByContains('characters', 'type', ['rugrats', 'RUGRATS'])
+    friends: filterCollectionByContains('characters', 'type', ['rugrats', 'RUGRATS'])
   });
 
   const subject = Tommy.create({
@@ -278,4 +291,28 @@ test('#filterCollectionByContains filters a collection by an array of values for
   const result = get(subject, 'friends');
 
   assert.deepEqual(result, expected, 'it returns only returns objects of a given property');
+});
+
+test('#collectionWithoutKey returns the collection without the item by key', (assert) => {
+  assert.expect(1);
+
+  const employees = [
+    { id: 0, name: 'Michael Bolton' },
+    { id: 1, name: 'Tom Smykowski' },
+    { id: 2, name: 'Peter Gibbons' }
+  ];
+  const expectedResult = [
+    { id: 1, name: 'Tom Smykowski' },
+    { id: 2, name: 'Peter Gibbons' }
+  ];
+  const Department = EmberObject.extend({
+    remainingEmployees: collectionWithoutKey('employees', 'selectedEmployee')
+  });
+  const subject = Department.create({
+    employees,
+    selectedEmployee: employees[0]
+  });
+  const result = get(subject, 'remainingEmployees');
+
+  assert.deepEqual(result, expectedResult, 'it returns the found item');
 });
