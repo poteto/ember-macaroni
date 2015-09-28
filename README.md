@@ -1,6 +1,6 @@
 # ember-macaroni [![npm version](https://badge.fury.io/js/ember-macaroni.svg)](http://badge.fury.io/js/ember-macaroni) [![Build Status](https://travis-ci.org/poteto/ember-macaroni.svg?branch=master)](https://travis-ci.org/poteto/ember-macaroni)
 
-Delicious computed property macaronis (macros) for Ember.js 1.13.x and greater.
+Keep your app code DRY and copypasta free with computed property <strong>mac</strong>a<strong>ro</strong>ni<strong>s</strong> (macros) for Ember.js 1.13.x and greater. 
 
 ![](http://i.imgur.com/XV4VFJl.jpg)
 
