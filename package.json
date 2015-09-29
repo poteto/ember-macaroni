@@ -1,7 +1,7 @@
 {
   "name": "ember-macaroni",
   "version": "0.1.1",
-  "description": "Delicious computed property macaronis (macros) for Ember.js",
+  "description": "Keep your app code DRY and copypasta free with computed property macaronis (macros)",
   "directories": {
     "doc": "doc",
     "test": "tests"

@@ -10,11 +10,13 @@ First, import the macro(s):
 ```js
 import macros from 'ember-macaroni'; // imports all the things
 import { findFromCollectionByKey } from 'ember-macaroni'; // imports a named macro
+const { findFromCollectionByValue } = macros; // destructuring
 
 export default Ember.Component.extend({
   items: null,
   selectedId: null,
   selectedItem: findFromCollectionByKey('items', 'id', 'selectedId'),
+  hansel: findFromCollectionByValue('items', 'name', 'Hansel'),
 
   init() {
     this.items = [
@@ -122,7 +124,7 @@ Returns an array with just the items with the matched property.
 */
 ```
 
-#### `filterCollectionByContains(collectionKey, propName, values)`
+#### `filterFromCollectionByContains(collectionKey, propName, values)`
 
 Returns an array with just the items that are contained in another array.
 
@@ -131,7 +133,7 @@ Returns an array with just the items that are contained in another array.
  * Ember.Object.extend({
  *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
  *   selectedId: 1,
- *   selectedItem: filterCollectionByContains('items', 'id', [1]) // [{ id: 1, name: 'foo' }]
+ *   selectedItem: filterFromCollectionByContains('items', 'id', [1]) // [{ id: 1, name: 'foo' }]
  * });
  * 
  * @param {String} collectionKey The key name for the collection
