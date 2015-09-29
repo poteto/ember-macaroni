@@ -11,6 +11,7 @@ module('ember-macaroni/collection - findFromCollectionByKey');
 
 test('#findFromCollectionByKey finds an item from a collection with a dependent key', (assert) => {
   assert.expect(1);
+
   const expectedResult = { id: 1, name: 'Tom Smykowski' };
   const Department = EmberObject.extend({
     selectedEmployee: findFromCollectionByKey('employees', 'id', 'selectedEmployeeId')

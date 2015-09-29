@@ -23,3 +23,18 @@ test('#ifThenElseWithValues returns the `trueValue` if the conditional is true',
 
   assert.deepEqual(result, expectedResult, 'it returns the `trueValue`');
 });
+
+test('#ifThenElseWithValues returns the `falseValue` if the conditional is false', (assert) => {
+  assert.expect(1);
+
+  const expectedResult = 'Still employed';
+  const Employee = EmberObject.extend({
+    retirementStatus: ifThenElseWithValues('isRetired', 'Left job', 'Still employed')
+  });
+  const subject = Employee.create({
+    isRetired: false
+  });
+  const result = get(subject, 'retirementStatus');
+
+  assert.deepEqual(result, expectedResult, 'it returns the `falseValue`');
+});

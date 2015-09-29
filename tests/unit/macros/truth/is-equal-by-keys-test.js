@@ -25,3 +25,19 @@ test('#isEqualByKeys returns true if both dependent keys are equal in reference 
 
   assert.equal(result, expectedResult, 'it returns true');
 });
+
+test('#isEqualByKeys returns false if both dependent keys are not equal in reference and value', (assert) => {
+  assert.expect(1);
+
+  const expectedResult = false;
+  const Department = EmberObject.extend({
+    isSelected: isEqualByKeys('event', 'selectedEvent')
+  });
+  const subject = Department.create({
+    event: { name: 'foo' },
+    selectedEvent: { name: 'bar' }
+  });
+  const result = get(subject, 'isSelected');
+
+  assert.equal(result, expectedResult, 'it returns false');
+});
