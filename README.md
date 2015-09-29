@@ -177,8 +177,7 @@ Ember.Object.extend({
 Returns an array without an item by dependent key.
 
 - `@param {String} collectionKey` The key name for the collection
-- `@param {String} propName` The key name for the property to filter by
-- `@param {Array} values` The array of values to filter
+- `@param {String} propName` The key name for the property to exclude
 
 ```js
 Ember.Object.extend({
