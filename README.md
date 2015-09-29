@@ -95,7 +95,7 @@ Returns the first item with a property matching the passed value.
 ```js 
 Ember.Object.extend({
   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
-  selectedItem: findFromCollectionByKey('items', 'id', 1) // { id: 1, name: 'foo' }
+  selectedItem: findFromCollectionByValue('items', 'id', 1) // { id: 1, name: 'foo' }
 });
 ```
 
@@ -258,7 +258,7 @@ Ternary conditional.
 ```js
 Ember.Object.extend({
   isSelected: true,
-  displayText: ifThenElseWithKeys('isSelected', 'Is Enabled', 'Is Disabled') // 'Is Enabled'
+  displayText: ifThenElseWithValues('isSelected', 'Is Enabled', 'Is Disabled') // 'Is Enabled'
 });
 ```
 
@@ -309,7 +309,7 @@ Lesser than or equal to comparison between two dependent keys.
 Ember.Object.extend({
   first: 5,
   second: 2,
-  isFirstLesserThanOrEqualToSecond: gt('first', 'second') // false
+  isFirstLesserThanOrEqualToSecond: lte('first', 'second') // false
 });
 ```
 
@@ -326,7 +326,7 @@ Lesser than comparison between two dependent keys.
 Ember.Object.extend({
   first: 5,
   second: 2,
-  isFirstLessThanSecond: gt('first', 'second') // false
+  isFirstLessThanSecond: lt('first', 'second') // false
 });
 ```
 
