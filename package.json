@@ -1,7 +1,7 @@
 {
   "name": "ember-macaroni",
-  "version": "0.1.1",
-  "description": "Delicious computed property macaronis (macros) for Ember.js",
+  "version": "0.2.0",
+  "description": "Keep your app code DRY and copypasta free with computed property macaronis (macros)",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -42,7 +42,8 @@
     "computed property macros",
     "macros",
     "macaroni",
-    "ember macaroni"
+    "ember macaroni",
+    "functional macros"
   ],
   "dependencies": {
     "ember-cli-htmlbars": "0.7.9",

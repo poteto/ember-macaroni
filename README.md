@@ -1,20 +1,27 @@
 # ember-macaroni [![npm version](https://badge.fury.io/js/ember-macaroni.svg)](http://badge.fury.io/js/ember-macaroni) [![Build Status](https://travis-ci.org/poteto/ember-macaroni.svg?branch=master)](https://travis-ci.org/poteto/ember-macaroni)
 
-Delicious computed property macaronis (macros) for Ember.js 1.13.x and greater.
+Keep your app code DRY and copypasta free with computed property <strong>mac</strong>a<strong>ro</strong>ni<strong>s</strong> (macros) for Ember.js 1.13.x and greater. 
 
 ![](http://i.imgur.com/XV4VFJl.jpg)
 
+## Why
+Computed property macros (CPM) are great for DRYing up your code, and Ember.js ships with a [few handy computed macros](http://emberjs.com/api/classes/Ember.computed.html). This addon adds a few more functional-style macros, and can be thought of as the "lodash equivalent" of Ember CPM libraries.
+
+Chaining is not supported... yet.
+
 ## Usage
-First, import the macro(s):
+First, import the macro(s) you need, or the whole thing:
 
 ```js
-import macros from 'ember-macaroni'; // imports all the things
 import { findFromCollectionByKey } from 'ember-macaroni'; // imports a named macro
+import macros from 'ember-macaroni'; // imports all the things
+const { findFromCollectionByValue } = macros; // destructuring
 
 export default Ember.Component.extend({
   items: null,
   selectedId: null,
   selectedItem: findFromCollectionByKey('items', 'id', 'selectedId'),
+  hansel: findFromCollectionByValue('items', 'name', 'Hansel'),
 
   init() {
     this.items = [
@@ -32,217 +39,335 @@ export default Ember.Component.extend({
 });
 ```
 
-## Macro API
+## Available macros
 
-#### `findFromCollectionByKey(collectionKey, propName, valueKey)`
+* [Collection](#collection)
+  - [findFromCollectionByKey](#findfromcollectionbykey)
+  - [findFromCollectionByValue](#findfromcollectionbyvalue)
+  - [rejectFromCollectionByKey](#rejectfromcollectionbykey)
+  - [rejectFromCollectionByValue](#rejectfromcollectionbyvalue)
+  - [filterFromCollectionByKey](#filterfromcollectionbykey)
+  - [filterFromCollectionByContains](#filterfromcollectionbycontains)
+  - [collectionWithoutKey](#collectionwithoutkey)
+  - [reduceCollectionByKey](#reducecollectionbykey)
+* [Truth](#truth)
+  - [isEqualByKeys](#isequalbykeys)
+  - [ifThenElseWithKeys](#ifthenelsewithkeys)
+  - [ifThenElseWithValues](#ifthenelsewithvalues)
+  - [gte](#gte)
+  - [gt](#gt)
+  - [lte](#lte)
+  - [lt](#lt)
+* [General](#general)
+  - [getPropertiesByKeys](#getpropertiesbykeys)
+  - [joinWith](#joinwith)
+
+---
+
+### Collection
+
+#### `findFromCollectionByKey`
 
 Returns the first item with a property matching the passed value from a dependent key.
 
-```js
-/** 
- * Ember.Object.extend({
- *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
- *   selectedId: 1,
- *   selectedItem: findFromCollectionByKey('items', 'id', 'selectedId') // { id: 1, name: 'foo' }
- * });
- *
- * @param {String} collectionKey The key name for the collection
- * @param {String} propName The key name for the property to find by
- * @param {String} valueKey The key name that returns the value to find
-*/
+- `@param {String} collectionKey` The key name for the collection
+- `@param {String} propName` The key name for the property to find by
+- `@param {String} valueKey` The key name that returns the value to find
+
+```js 
+Ember.Object.extend({
+  items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
+  selectedId: 1,
+  selectedItem: findFromCollectionByKey('items', 'id', 'selectedId') // { id: 1, name: 'foo' }
+});
 ```
 
-#### `findFromCollectionByValue(collectionKey, propName, value)`
+**[⬆ back to top](#available-macros)**
+
+#### `findFromCollectionByValue`
 
 Returns the first item with a property matching the passed value.
 
-```js
-/** 
- * Ember.Object.extend({
- *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
- *   selectedItem: findFromCollectionByKey('items', 'id', 1) // { id: 1, name: 'foo' }
- * });
- *
- * @param {String} collectionKey The key name for the collection
- * @param {String} propName The key name for the property to find by
- * @param {*} value The value to match
-*/
+- `@param {String} collectionKey` The key name for the collection
+- `@param {String} propName` The key name for the property to find by
+- `@param {*} value` The value to match`
+
+```js 
+Ember.Object.extend({
+  items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
+  selectedItem: findFromCollectionByKey('items', 'id', 1) // { id: 1, name: 'foo' }
+});
 ```
 
-#### `rejectFromCollectionByKey(collectionKey, propName, valueKey)`
+**[⬆ back to top](#available-macros)**
+
+#### `rejectFromCollectionByKey`
 
 Returns an array with the items that do not match the passed value from a dependent key.
 
+- `@param {String} collectionKey` The key name for the collection
+- `@param {String} propName` The key name for the property to reject by
+- `@param {String} valueKey` The key name that returns the value to reject
+
 ```js
-/** 
- * Ember.Object.extend({
- *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
- *   selectedId: 2,
- *   selectedItem: rejectFromCollectionByKey('items', 'id', 'selectedId') // [{ id: 1, name: 'foo' }]
- * });
- *
- * @param {String} collectionKey The key name for the collection
- * @param {String} propName The key name for the property to reject by
- * @param {String} valueKey The key name that returns the value to reject
-*/
+Ember.Object.extend({
+  items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
+  selectedId: 2,
+  selectedItem: rejectFromCollectionByKey('items', 'id', 'selectedId') // [{ id: 1, name: 'foo' }]
+});
 ```
 
-#### `rejectFromCollectionByValue(collectionKey, propName, value)`
+**[⬆ back to top](#available-macros)**
+
+#### `rejectFromCollectionByValue`
 
 Returns an array with the items that do not match the passed value.
 
+- `@param {String} collectionKey` The key name for the collection
+- `@param {String} propName` The key name for the property to reject by
+- `@param {*} value` The value to reject
+
 ```js
-/** 
- * Ember.Object.extend({
- *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
- *   selectedItem: rejectFromCollectionByValue('items', 'id', 2) // [{ id: 1, name: 'foo' }]
- * });
- *
- * @param {String} collectionKey The key name for the collection
- * @param {String} propName The key name for the property to reject by
- * @param {*} value The value to reject
-*/
+Ember.Object.extend({
+  items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
+  selectedItem: rejectFromCollectionByValue('items', 'id', 2) // [{ id: 1, name: 'foo' }]
+});
 ```
 
-#### `filterFromCollectionByKey(collectionKey, propName, valueKey)`
+**[⬆ back to top](#available-macros)**
+
+#### `filterFromCollectionByKey`
 
 Returns an array with just the items with the matched property.
 
+- `@param {String} collectionKey` The key name for the collection
+- `@param {String} propName` The key name for the property to filter by
+- `@param {String} valueKey` The key name that returns the value to filter
+
 ```js
-/** 
- * Ember.Object.extend({
- *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
- *   selectedId: 1,
- *   selectedItem: filterFromCollectionByKey('items', 'id', 'selectedId') // [{ id: 1, name: 'foo' }]
- * });
- * 
- * @param {String} collectionKey The key name for the collection
- * @param {String} propName The key name for the property to filter by
- * @param {String} valueKey The key name that returns the value to filter
-*/
+Ember.Object.extend({
+  items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
+  selectedId: 1,
+  selectedItem: filterFromCollectionByKey('items', 'id', 'selectedId') // [{ id: 1, name: 'foo' }]
+});
 ```
 
-#### `filterCollectionByContains(collectionKey, propName, values)`
+**[⬆ back to top](#available-macros)**
+
+#### `filterFromCollectionByContains`
 
 Returns an array with just the items that are contained in another array.
 
+- `@param {String} collectionKey` The key name for the collection
+- `@param {String} propName` The key name for the property to filter by
+- `@param {Array} values` The array of values to filter
+
 ```js
-/** 
- * Ember.Object.extend({
- *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
- *   selectedId: 1,
- *   selectedItem: filterCollectionByContains('items', 'id', [1]) // [{ id: 1, name: 'foo' }]
- * });
- * 
- * @param {String} collectionKey The key name for the collection
- * @param {String} propName The key name for the property to filter by
- * @param {Array} values The array of values to filter
-*/
+Ember.Object.extend({
+  items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
+  selectedId: 1,
+  selectedItem: filterFromCollectionByContains('items', 'id', [1]) // [{ id: 1, name: 'foo' }]
+});
 ```
 
-#### `collectionWithoutKey(collectionKey, dependentKey)`
+**[⬆ back to top](#available-macros)**
+
+#### `collectionWithoutKey`
 
 Returns an array without an item by dependent key.
 
+- `@param {String} collectionKey` The key name for the collection
+- `@param {String} propName` The key name for the property to filter by
+- `@param {Array} values` The array of values to filter
+
 ```js
-/**
- * Ember.Object.extend({
- *   items: [1, 2, 3],
- *   selectedItem: 1,
- *   remainingItems: collectionWithoutKey('items', 'selectedItem') // [2, 3]
- * });
- *
- * @param {String} collectionKey The key name for the collection
- * @param {String} propName The key name for the property to filter by
- * @param {Array} values The array of values to filter
-*/
+Ember.Object.extend({
+  items: [1, 2, 3],
+  selectedItem: 1,
+  remainingItems: collectionWithoutKey('items', 'selectedItem') // [2, 3]
+});
 ```
 
-#### `reduceCollectionByKey(collectionKey, dependentKey, startValue)`
+**[⬆ back to top](#available-macros)**
+
+#### `reduceCollectionByKey`
 
 Combines the values of the enumerator into a single value, using a dependent key.
 
+- `@param {String} collectionKey` The key name for the collection
+- `@param {String} dependentKey` The key name for the property to reduce
+- `@param {*} startValue` The initial value
+
 ```js
-/** 
- * Ember.Object.extend({
- *   items: [{ name: 'foo', age: 2 }, { name: 'bar', age: 5 }],
- *   selectedItem: reduceCollectionByKey('items', 'age', 0) // 7
- * });
- * 
- * @param {String} collectionKey The key name for the collection
- * @param {String} dependentKey The key name for the property to reduce
- * @param {*} startValue The initial value
-*/
+Ember.Object.extend({
+  items: [{ name: 'foo', age: 2 }, { name: 'bar', age: 5 }],
+  selectedItem: reduceCollectionByKey('items', 'age', 0) // 7
+});
 ```
 
-#### `isEqualByKeys(firstKey, secondKey)`
+**[⬆ back to top](#available-macros)**
+
+---
+
+### Truth
+
+#### `isEqualByKeys`
 
 Strict equality using dependent keys.
 
-```js
-/** 
- * Ember.Object.extend({
- *   employeeId: 1
- *   selectedId: 1,
- *   isSelected: isEqualByKeys('employeeId', 'selectedId') // true
- * });
- * 
- * @param {String} firstKey The key name for the first property
- * @param {String} secondKey The key name for the second property
-*/
-```
-
-#### `getPropertiesByKeys(...dependentKeys)`
-
-Returns a POJO containing all the key-values that match the dependent keys.
+- `@param {String} firstKey` The key name for the first property
+- `@param {String} secondKey` The key name for the second property
 
 ```js
-/** 
- * Ember.Object.extend({
- *   age: 5,
- *   name: 'foo',
- *   props: getPropertiesByKeys('age', 'name') // { age: 5, name: 'foo' }
- * });
- * 
- * @param {...rest} dependentKeys Argument list of dependent keys
-*/
+Ember.Object.extend({
+  employeeId: 1
+  selectedId: 1,
+  isSelected: isEqualByKeys('employeeId', 'selectedId') // true
+});
 ```
 
-#### `ifThenElseWithKeys(conditionalKey, trueKey, falseKey)`
+**[⬆ back to top](#available-macros)**
+
+#### `ifThenElseWithKeys`
 
 Ternary conditional with dependent keys.
 
+- `@param {String} conditionalKey` The key name for the conditional property
+- `@param {String} trueKey` The key name for the property to return when the conditional is true
+- `@param {String} falseKey` The key name for the property to return when the conditional is false
+
 ```js
-/** 
- * Ember.Object.extend({
- *   isSelected: true,
- *   selectedText: 'Is Enabled',
-*    deselectedText: 'Is Disabled',
- *   displayText: ifThenElseWithKeys('isSelected', 'selectedText', 'deselectedText') // 'Is Enabled'
- * });
- * 
- * @param {String} conditionalKey The key name for the conditional property
- * @param {String} trueKey The key name for the property to return when the conditional is true
- * @param {String} falseKey The key name for the property to return when the conditional is false
-*/
+Ember.Object.extend({
+  isSelected: true,
+  selectedText: 'Is Enabled',
+  deselectedText: 'Is Disabled',
+  displayText: ifThenElseWithKeys('isSelected', 'selectedText', 'deselectedText') // 'Is Enabled'
+});
 ```
 
-#### `ifThenElseWithValues(conditionalKey, trueValue, falseValue)`
+**[⬆ back to top](#available-macros)**
+
+#### `ifThenElseWithValues`
 
 Ternary conditional.
 
+- `@param {String} conditionalKey` The key name for the conditional property
+- `@param {String} trueValue` The value to return when the conditional is true
+- `@param {String} falseValue` The value to return when the conditional is false
+
 ```js
-/** 
- * Ember.Object.extend({
- *   isSelected: true,
- *   displayText: ifThenElseWithKeys('isSelected', 'Is Enabled', 'Is Disabled') // 'Is Enabled'
- * });
- * 
- * @param {String} conditionalKey The key name for the conditional property
- * @param {String} trueValue The value to return when the conditional is true
- * @param {String} falseValue The value to return when the conditional is false
-*/
+Ember.Object.extend({
+  isSelected: true,
+  displayText: ifThenElseWithKeys('isSelected', 'Is Enabled', 'Is Disabled') // 'Is Enabled'
+});
 ```
+
+**[⬆ back to top](#available-macros)**
+
+#### `gte`
+
+Greater than or equal to comparison between two dependent keys.
+
+- `@param {String} lhsKey` The key name for the left hand side of the operator
+- `@param {String} rhsKey` The key name for the right hand side of the operator
+
+```js
+Ember.Object.extend({
+  first: 5,
+  second: 2,
+  isFirstGreaterThanOrEqualToSecond: gte('first', 'second') // true
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `gt`
+
+Greater than comparison between two dependent keys.
+
+- `@param {String} lhsKey` The key name for the left hand side of the operator
+- `@param {String} rhsKey` The key name for the right hand side of the operator
+
+```js
+Ember.Object.extend({
+  first: 5,
+  second: 2,
+  isFirstGreaterThanSecond: gt('first', 'second') // true
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `lte`
+
+Lesser than or equal to comparison between two dependent keys.
+
+- `@param {String} lhsKey` The key name for the left hand side of the operator
+- `@param {String} rhsKey` The key name for the right hand side of the operator
+
+```js
+Ember.Object.extend({
+  first: 5,
+  second: 2,
+  isFirstLesserThanOrEqualToSecond: gt('first', 'second') // false
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `lt`
+
+Lesser than comparison between two dependent keys.
+
+- `@param {String} lhsKey` The key name for the left hand side of the operator
+- `@param {String} rhsKey` The key name for the right hand side of the operator
+
+```js
+Ember.Object.extend({
+  first: 5,
+  second: 2,
+  isFirstLessThanSecond: gt('first', 'second') // false
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+---
+
+### General
+
+#### `getPropertiesByKeys`
+
+Returns a POJO containing all the key-values that match the dependent keys.
+
+- `@param {...rest} dependentKeys` Argument list of dependent keys
+
+```js
+Ember.Object.extend({
+  age: 5,
+  name: 'foo',
+  props: getPropertiesByKeys('age', 'name') // { age: 5, name: 'foo' }
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `joinWith`
+
+Returns a string of values joined together with a separator.
+
+- `@param {String} seperator` Separator to join values with
+- `@param {...rest} dependentKeys` Argument list of dependent keys
+
+```js
+Ember.Object.extend({
+  firstName: 'Derek',
+  lastName: 'Zoolander',
+  fullName: joinWith(' ', 'firstName', 'lastName') // 'Derek Zoolander'
+});
+```
+
+**[⬆ back to top](#available-macros)**
 
 ## Installation
 
