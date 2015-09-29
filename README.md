@@ -4,6 +4,11 @@ Keep your app code DRY and copypasta free with computed property <strong>mac</st
 
 ![](http://i.imgur.com/XV4VFJl.jpg)
 
+## Why
+Computed property macros (CPM) are great for DRYing up your code, and Ember.js ships with a [few handy computed macros](http://emberjs.com/api/classes/Ember.computed.html). This addon adds a few more functional-style macros, and can be thought of as the "lodash equivalent" of Ember CPM libraries.
+
+Chaining is not supported... yet.
+
 ## Usage
 First, import the macro(s) you need, or the whole thing:
 
@@ -49,8 +54,15 @@ export default Ember.Component.extend({
   - [isEqualByKeys](#isequalbykeys)
   - [ifThenElseWithKeys](#ifthenelsewithkeys)
   - [ifThenElseWithValues](#ifthenelsewithvalues)
+  - [gte](#gte)
+  - [gt](#gt)
+  - [lte](#lte)
+  - [lt](#lt)
 * [General](#general)
   - [getPropertiesByKeys](#getpropertiesbykeys)
+  - [joinWith](#joinwith)
+
+---
 
 ### Collection
 
@@ -195,6 +207,8 @@ Ember.Object.extend({
 
 **[⬆ back to top](#available-macros)**
 
+---
+
 ### Truth
 
 #### `isEqualByKeys`
@@ -250,6 +264,76 @@ Ember.Object.extend({
 
 **[⬆ back to top](#available-macros)**
 
+#### `gte`
+
+Greater than or equal to comparison between two dependent keys.
+
+- `@param {String} lhsKey` The key name for the left hand side of the operator
+- `@param {String} rhsKey` The key name for the right hand side of the operator
+
+```js
+Ember.Object.extend({
+  first: 5,
+  second: 2,
+  isFirstGreaterThanOrEqualToSecond: gte('first', 'second') // true
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `gt`
+
+Greater than comparison between two dependent keys.
+
+- `@param {String} lhsKey` The key name for the left hand side of the operator
+- `@param {String} rhsKey` The key name for the right hand side of the operator
+
+```js
+Ember.Object.extend({
+  first: 5,
+  second: 2,
+  isFirstGreaterThanSecond: gt('first', 'second') // true
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `lte`
+
+Lesser than or equal to comparison between two dependent keys.
+
+- `@param {String} lhsKey` The key name for the left hand side of the operator
+- `@param {String} rhsKey` The key name for the right hand side of the operator
+
+```js
+Ember.Object.extend({
+  first: 5,
+  second: 2,
+  isFirstLesserThanOrEqualToSecond: gt('first', 'second') // false
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `lt`
+
+Lesser than comparison between two dependent keys.
+
+- `@param {String} lhsKey` The key name for the left hand side of the operator
+- `@param {String} rhsKey` The key name for the right hand side of the operator
+
+```js
+Ember.Object.extend({
+  first: 5,
+  second: 2,
+  isFirstLessThanSecond: gt('first', 'second') // false
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+---
+
 ### General
 
 #### `getPropertiesByKeys`
@@ -263,6 +347,23 @@ Ember.Object.extend({
   age: 5,
   name: 'foo',
   props: getPropertiesByKeys('age', 'name') // { age: 5, name: 'foo' }
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `joinWith`
+
+Returns a string of values joined together with a separator.
+
+- `@param {String} seperator` Separator to join values with
+- `@param {...rest} dependentKeys` Argument list of dependent keys
+
+```js
+Ember.Object.extend({
+  firstName: 'Derek',
+  lastName: 'Zoolander',
+  fullName: joinWith(' ', 'firstName', 'lastName') // 'Derek Zoolander'
 });
 ```
 

@@ -10,8 +10,13 @@ import reduceCollectionByKey from './macros/collection/reduce-collection-by-key'
 import isEqualByKeys from './macros/truth/is-equal-by-keys';
 import ifThenElseWithKeys from './macros/truth/if-then-else-with-keys';
 import ifThenElseWithValues from './macros/truth/if-then-else-with-values';
+import gte from './macros/truth/gte';
+import gt from './macros/truth/gt';
+import lte from './macros/truth/lte';
+import lt from './macros/truth/lt';
 
 import getPropertiesByKeys from './macros/general/get-properties-by-keys';
+import joinWith from './macros/general/join-with';
 
 export {
   findFromCollectionByKey,
@@ -23,9 +28,14 @@ export {
   collectionWithoutKey,
   reduceCollectionByKey,
   getPropertiesByKeys,
+  joinWith,
   isEqualByKeys,
   ifThenElseWithKeys,
-  ifThenElseWithValues
+  ifThenElseWithValues,
+  gte,
+  gt,
+  lte,
+  lt
 };
 
 export default {
@@ -38,7 +48,12 @@ export default {
   collectionWithoutKey,
   reduceCollectionByKey,
   getPropertiesByKeys,
+  joinWith,
   isEqualByKeys,
   ifThenElseWithKeys,
-  ifThenElseWithValues
+  ifThenElseWithValues,
+  gte,
+  gt,
+  lte,
+  lt
 };
