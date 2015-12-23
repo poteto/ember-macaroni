@@ -210,7 +210,7 @@ Ember.Object.extend({
 
 ### Truth
 
-#### `isEqualByKeys`
+#### `equalKey`
 
 Strict equality using dependent keys.
 
@@ -221,7 +221,7 @@ Strict equality using dependent keys.
 Ember.Object.extend({
   employeeId: 1
   selectedId: 1,
-  isSelected: isEqualByKeys('employeeId', 'selectedId') // true
+  isSelected: equalKey('employeeId', 'selectedId') // true
 });
 ```
 
@@ -263,7 +263,7 @@ Ember.Object.extend({
 
 **[⬆ back to top](#available-macros)**
 
-#### `gte`
+#### `gteKey`
 
 Greater than or equal to comparison between two dependent keys.
 
@@ -274,13 +274,13 @@ Greater than or equal to comparison between two dependent keys.
 Ember.Object.extend({
   first: 5,
   second: 2,
-  isFirstGreaterThanOrEqualToSecond: gte('first', 'second') // true
+  isFirstGreaterThanOrEqualToSecond: gteKey('first', 'second') // true
 });
 ```
 
 **[⬆ back to top](#available-macros)**
 
-#### `gt`
+#### `gtKey`
 
 Greater than comparison between two dependent keys.
 
@@ -291,13 +291,13 @@ Greater than comparison between two dependent keys.
 Ember.Object.extend({
   first: 5,
   second: 2,
-  isFirstGreaterThanSecond: gt('first', 'second') // true
+  isFirstGreaterThanSecond: gtKey('first', 'second') // true
 });
 ```
 
 **[⬆ back to top](#available-macros)**
 
-#### `lte`
+#### `lteKey`
 
 Lesser than or equal to comparison between two dependent keys.
 
@@ -308,13 +308,13 @@ Lesser than or equal to comparison between two dependent keys.
 Ember.Object.extend({
   first: 5,
   second: 2,
-  isFirstLesserThanOrEqualToSecond: lte('first', 'second') // false
+  isFirstLesserThanOrEqualToSecond: lteKey('first', 'second') // false
 });
 ```
 
 **[⬆ back to top](#available-macros)**
 
-#### `lt`
+#### `ltKey`
 
 Lesser than comparison between two dependent keys.
 
@@ -325,7 +325,7 @@ Lesser than comparison between two dependent keys.
 Ember.Object.extend({
   first: 5,
   second: 2,
-  isFirstLessThanSecond: lt('first', 'second') // false
+  isFirstLessThanSecond: ltKey('first', 'second') // false
 });
 ```
 
