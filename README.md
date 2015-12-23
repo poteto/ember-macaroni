@@ -1,6 +1,6 @@
 # ember-macaroni [![npm version](https://badge.fury.io/js/ember-macaroni.svg)](http://badge.fury.io/js/ember-macaroni) [![Build Status](https://travis-ci.org/poteto/ember-macaroni.svg?branch=master)](https://travis-ci.org/poteto/ember-macaroni) [![Ember Observer Score](http://emberobserver.com/badges/ember-macaroni.svg)](http://emberobserver.com/addons/ember-macaroni)
 
-Keep your app code DRY and copypasta free with computed property <strong>mac</strong>a<strong>ro</strong>ni<strong>s</strong> (macros) for Ember.js 1.13.x and greater. 
+Keep your app code DRY and copypasta free with computed property <strong>mac</strong>a<strong>ro</strong>ni<strong>s</strong> (macros) for Ember.js 1.13.x and greater.
 
 ![](http://i.imgur.com/XV4VFJl.jpg)
 
@@ -74,7 +74,7 @@ Returns the first item with a property matching the passed value from a dependen
 - `@param {String} propName` The key name for the property to find by
 - `@param {String} valueKey` The key name that returns the value to find
 
-```js 
+```js
 Ember.Object.extend({
   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
   selectedId: 1,
@@ -92,7 +92,7 @@ Returns the first item with a property matching the passed value.
 - `@param {String} propName` The key name for the property to find by
 - `@param {*} value` The value to match`
 
-```js 
+```js
 Ember.Object.extend({
   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
   selectedItem: findFromCollectionByValue('items', 'id', 1) // { id: 1, name: 'foo' }
@@ -210,7 +210,7 @@ Ember.Object.extend({
 
 ### Truth
 
-#### `isEqualByKeys`
+#### `equalKey`
 
 Strict equality using dependent keys.
 
@@ -221,7 +221,7 @@ Strict equality using dependent keys.
 Ember.Object.extend({
   employeeId: 1
   selectedId: 1,
-  isSelected: isEqualByKeys('employeeId', 'selectedId') // true
+  isSelected: equalKey('employeeId', 'selectedId') // true
 });
 ```
 
@@ -263,7 +263,7 @@ Ember.Object.extend({
 
 **[⬆ back to top](#available-macros)**
 
-#### `gte`
+#### `gteKey`
 
 Greater than or equal to comparison between two dependent keys.
 
@@ -274,13 +274,13 @@ Greater than or equal to comparison between two dependent keys.
 Ember.Object.extend({
   first: 5,
   second: 2,
-  isFirstGreaterThanOrEqualToSecond: gte('first', 'second') // true
+  isFirstGreaterThanOrEqualToSecond: gteKey('first', 'second') // true
 });
 ```
 
 **[⬆ back to top](#available-macros)**
 
-#### `gt`
+#### `gtKey`
 
 Greater than comparison between two dependent keys.
 
@@ -291,13 +291,13 @@ Greater than comparison between two dependent keys.
 Ember.Object.extend({
   first: 5,
   second: 2,
-  isFirstGreaterThanSecond: gt('first', 'second') // true
+  isFirstGreaterThanSecond: gtKey('first', 'second') // true
 });
 ```
 
 **[⬆ back to top](#available-macros)**
 
-#### `lte`
+#### `lteKey`
 
 Lesser than or equal to comparison between two dependent keys.
 
@@ -308,13 +308,13 @@ Lesser than or equal to comparison between two dependent keys.
 Ember.Object.extend({
   first: 5,
   second: 2,
-  isFirstLesserThanOrEqualToSecond: lte('first', 'second') // false
+  isFirstLesserThanOrEqualToSecond: lteKey('first', 'second') // false
 });
 ```
 
 **[⬆ back to top](#available-macros)**
 
-#### `lt`
+#### `ltKey`
 
 Lesser than comparison between two dependent keys.
 
@@ -325,7 +325,7 @@ Lesser than comparison between two dependent keys.
 Ember.Object.extend({
   first: 5,
   second: 2,
-  isFirstLessThanSecond: lt('first', 'second') // false
+  isFirstLessThanSecond: ltKey('first', 'second') // false
 });
 ```
 
