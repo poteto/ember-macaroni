@@ -1,6 +1,6 @@
 # ember-macaroni [![npm version](https://badge.fury.io/js/ember-macaroni.svg)](http://badge.fury.io/js/ember-macaroni) [![Build Status](https://travis-ci.org/poteto/ember-macaroni.svg?branch=master)](https://travis-ci.org/poteto/ember-macaroni) [![Ember Observer Score](http://emberobserver.com/badges/ember-macaroni.svg)](http://emberobserver.com/addons/ember-macaroni)
 
-Keep your app code DRY and copypasta free with computed property <strong>mac</strong>a<strong>ro</strong>ni<strong>s</strong> (macros) for Ember.js 1.13.x and greater. 
+Keep your app code DRY and copypasta free with computed property <strong>mac</strong>a<strong>ro</strong>ni<strong>s</strong> (macros) for Ember.js 1.13.x and greater.
 
 ![](http://i.imgur.com/XV4VFJl.jpg)
 
@@ -74,7 +74,7 @@ Returns the first item with a property matching the passed value from a dependen
 - `@param {String} propName` The key name for the property to find by
 - `@param {String} valueKey` The key name that returns the value to find
 
-```js 
+```js
 Ember.Object.extend({
   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
   selectedId: 1,
@@ -92,7 +92,7 @@ Returns the first item with a property matching the passed value.
 - `@param {String} propName` The key name for the property to find by
 - `@param {*} value` The value to match`
 
-```js 
+```js
 Ember.Object.extend({
   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
   selectedItem: findFromCollectionByValue('items', 'id', 1) // { id: 1, name: 'foo' }
@@ -363,6 +363,22 @@ Ember.Object.extend({
   firstName: 'Derek',
   lastName: 'Zoolander',
   fullName: joinWith(' ', 'firstName', 'lastName') // 'Derek Zoolander'
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `join`
+
+Returns a string of values joined together with a default separator (" ").
+
+- `@param {...rest} dependentKeys` Argument list of dependent keys
+
+```js
+Ember.Object.extend({
+  firstName: 'Derek',
+  lastName: 'Zoolander',
+  fullName: join('firstName', 'lastName') // 'Derek Zoolander'
 });
 ```
 
