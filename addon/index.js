@@ -12,10 +12,10 @@ import reduceCollectionByKey from './macros/collection/reduce-collection-by-key'
 import equalKey from './macros/truth/equal-key';
 import ifThenElseWithKeys from './macros/truth/if-then-else-with-keys';
 import ifThenElseWithValues from './macros/truth/if-then-else-with-values';
-import gteKey from './macros/truth/gteKey';
-import gtKey from './macros/truth/gtKey';
-import lteKey from './macros/truth/lteKey';
-import ltKey from './macros/truth/ltKey';
+import gteKey from './macros/truth/gte-key';
+import gtKey from './macros/truth/gt-key';
+import lteKey from './macros/truth/lte-key';
+import ltKey from './macros/truth/lt-key';
 
 // general
 import getPropertiesByKeys from './macros/general/get-properties-by-keys';
