@@ -1,9 +1,7 @@
 import Ember from 'ember';
+import join from '../utils/join';
 
-const {
-  computed,
-  get
-} = Ember;
+const { computed } = Ember;
 
 /**
  * Returns a string of values joined together with a separator.
@@ -16,13 +14,11 @@ const {
  *
  * @param {String} seperator Separator to join values with
  * @param {...rest} dependentKeys Argument list of dependent keys
-*/
+ */
 export default function joinWith(separator, ...dependentKeys) {
   const computedFunc = computed({
     get() {
-      return dependentKeys
-        .map((dependentKey) => get(this, dependentKey))
-        .join(separator);
+      return join(separator, ...dependentKeys);
     }
   });
 
