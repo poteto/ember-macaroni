@@ -52,8 +52,8 @@ export default Ember.Component.extend({
   - [reduceCollectionByKey](#reducecollectionbykey)
 * [Truth](#truth)
   - [isEqualByKeys](#isequalbykeys)
-  - [ifThenElseWithKeys](#ifthenelsewithkeys)
-  - [ifThenElseWithValues](#ifthenelsewithvalues)
+  - [ternaryKey](#ternaryKey)
+  - [ternary](#ternary)
   - [gte](#gte)
   - [gt](#gt)
   - [lte](#lte)
@@ -227,7 +227,7 @@ Ember.Object.extend({
 
 **[⬆ back to top](#available-macros)**
 
-#### `ifThenElseWithKeys`
+#### `ternaryKey`
 
 Ternary conditional with dependent keys.
 
@@ -240,13 +240,13 @@ Ember.Object.extend({
   isSelected: true,
   selectedText: 'Is Enabled',
   deselectedText: 'Is Disabled',
-  displayText: ifThenElseWithKeys('isSelected', 'selectedText', 'deselectedText') // 'Is Enabled'
+  displayText: ternaryKey('isSelected', 'selectedText', 'deselectedText') // 'Is Enabled'
 });
 ```
 
 **[⬆ back to top](#available-macros)**
 
-#### `ifThenElseWithValues`
+#### `ternary`
 
 Ternary conditional.
 
@@ -257,7 +257,7 @@ Ternary conditional.
 ```js
 Ember.Object.extend({
   isSelected: true,
-  displayText: ifThenElseWithValues('isSelected', 'Is Enabled', 'Is Disabled') // 'Is Enabled'
+  displayText: ternary('isSelected', 'Is Enabled', 'Is Disabled') // 'Is Enabled'
 });
 ```
 
