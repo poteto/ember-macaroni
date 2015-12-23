@@ -1,20 +1,20 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { lt } from 'ember-macaroni';
+import { ltKey } from 'ember-macaroni';
 
 const {
   Object: EmberObject,
   get
 } = Ember;
 
-module('ember-macaroni/truth - lt');
+module('ember-macaroni/truth - ltKey');
 
-test('#lt returns true if the left hand is not lesser or equal to the right hand', (assert) => {
+test('#ltKey returns true if the left hand is not lesser or equal to the right hand', (assert) => {
   assert.expect(1);
 
   const expectedResult = true;
   const Employee = EmberObject.extend({
-    isUnderRetirementAge: lt('age', 'retirementAge')
+    isUnderRetirementAge: ltKey('age', 'retirementAge')
   });
   const subject = Employee.create({
     age: 50,
@@ -25,12 +25,12 @@ test('#lt returns true if the left hand is not lesser or equal to the right hand
   assert.equal(result, expectedResult, 'it returns true');
 });
 
-test('#lt returns false if the left hand is not lesser or equal to the right hand', (assert) => {
+test('#ltKey returns false if the left hand is not lesser or equal to the right hand', (assert) => {
   assert.expect(1);
 
   const expectedResult = false;
   const Employee = EmberObject.extend({
-    isOverRetirementAge: lt('retirementAge', 'age')
+    isOverRetirementAge: ltKey('retirementAge', 'age')
   });
   const subject = Employee.create({
     age: 50,
