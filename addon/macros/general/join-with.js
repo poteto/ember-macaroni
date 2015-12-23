@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import join from '../utils/join';
+import joinUtil from '../utils/join';
 
 const { computed } = Ember;
 
@@ -18,7 +18,7 @@ const { computed } = Ember;
 export default function joinWith(separator, ...dependentKeys) {
   const computedFunc = computed({
     get() {
-      return join(separator, ...dependentKeys);
+      return joinUtil(this, separator, ...dependentKeys);
     }
   });
 
