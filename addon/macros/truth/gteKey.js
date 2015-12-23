@@ -12,13 +12,13 @@ const {
  * Ember.Object.extend({
  *   first: 5,
  *   second: 2,
- *   isFirstGreaterThanOrEqualToSecond: gte('first', 'second') // true
+ *   isFirstGreaterThanOrEqualToSecond: gteKey('first', 'second') // true
  * });
  *
  * @param {String} lhsKey The key name for the left hand side of the operator
  * @param {String} rhsKey The key name for the right hand side of the operator
 */
-export default function gte(lhsKey, rhsKey) {
+export default function gteKey(lhsKey, rhsKey) {
   return computed(lhsKey, rhsKey, {
     get() {
       return compare(get(this, lhsKey), get(this, rhsKey), 'gte');
