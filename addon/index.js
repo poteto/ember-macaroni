@@ -9,7 +9,7 @@ import collectionWithoutKey from './macros/collection/collection-without-key';
 import reduceCollectionByKey from './macros/collection/reduce-collection-by-key';
 
 // truth
-import isEqualByKeys from './macros/truth/is-equal-by-keys';
+import equalKey from './macros/truth/equal-key';
 import ifThenElseWithKeys from './macros/truth/if-then-else-with-keys';
 import ifThenElseWithValues from './macros/truth/if-then-else-with-values';
 import gteKey from './macros/truth/gteKey';
@@ -32,7 +32,7 @@ export {
   reduceCollectionByKey,
   getPropertiesByKeys,
   joinWith,
-  isEqualByKeys,
+  equalKey,
   ifThenElseWithKeys,
   ifThenElseWithValues,
   gteKey,
@@ -52,7 +52,7 @@ export default {
   reduceCollectionByKey,
   getPropertiesByKeys,
   joinWith,
-  isEqualByKeys,
+  equalKey,
   ifThenElseWithKeys,
   ifThenElseWithValues,
   gteKey,
