@@ -61,6 +61,7 @@ export default Ember.Component.extend({
 * [General](#general)
   - [getPropertiesByKeys](#getpropertiesbykeys)
   - [joinWith](#joinwith)
+  - [join](#join)
 
 ---
 
