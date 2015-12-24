@@ -1,11 +1,11 @@
 // collection
-import findFromCollectionByKey from './macros/collection/find-from-collection-by-key';
-import findFromCollectionByValue from './macros/collection/find-from-collection-by-value';
-import rejectFromCollectionByKey from './macros/collection/reject-from-collection-by-key';
-import rejectFromCollectionByValue from './macros/collection/reject-from-collection-by-value';
-import filterFromCollectionByKey from './macros/collection/filter-from-collection-by-key';
-import filterFromCollectionByContains from './macros/collection/filter-from-collection-by-contains';
-import reduceCollectionByKey from './macros/collection/reduce-collection-by-key';
+import filterContains from './macros/collection/filter-contains';
+import filterKey from './macros/collection/filter-key';
+import findKey from './macros/collection/find-key';
+import find from './macros/collection/find';
+import reduceKey from './macros/collection/reduce-key';
+import rejectKey from './macros/collection/reject-key';
+import reject from './macros/collection/reject';
 import withoutKey from './macros/collection/without-key';
 
 // truth
@@ -22,13 +22,13 @@ import getPropertiesByKeys from './macros/general/get-properties-by-keys';
 import joinWith from './macros/general/join-with';
 
 export {
-  findFromCollectionByKey,
-  findFromCollectionByValue,
-  rejectFromCollectionByKey,
-  rejectFromCollectionByValue,
-  filterFromCollectionByKey,
-  filterFromCollectionByContains,
-  reduceCollectionByKey,
+  filterContains,
+  filterKey,
+  findKey,
+  find,
+  reduceKey,
+  rejectKey,
+  reject,
   withoutKey,
   getPropertiesByKeys,
   joinWith,
@@ -42,13 +42,13 @@ export {
 };
 
 export default {
-  findFromCollectionByKey,
-  findFromCollectionByValue,
-  rejectFromCollectionByKey,
-  rejectFromCollectionByValue,
-  filterFromCollectionByKey,
-  filterFromCollectionByContains,
-  reduceCollectionByKey,
+  filterContains,
+  filterKey,
+  findKey,
+  find,
+  reduceKey,
+  rejectKey,
+  reject,
   withoutKey,
   getPropertiesByKeys,
   joinWith,
