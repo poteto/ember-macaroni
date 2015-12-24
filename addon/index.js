@@ -7,6 +7,7 @@ import reduceKey from './macros/collection/reduce-key';
 import rejectKey from './macros/collection/reject-key';
 import reject from './macros/collection/reject';
 import withoutKey from './macros/collection/without-key';
+import without from './macros/collection/without';
 
 // truth
 import equalKey from './macros/truth/equal-key';
@@ -30,6 +31,7 @@ export {
   rejectKey,
   reject,
   withoutKey,
+  without,
   getPropertiesByKeys,
   joinWith,
   equalKey,
@@ -50,6 +52,7 @@ export default {
   rejectKey,
   reject,
   withoutKey,
+  without,
   getPropertiesByKeys,
   joinWith,
   equalKey,

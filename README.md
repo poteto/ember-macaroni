@@ -50,6 +50,7 @@ export default Ember.Component.extend({
   - [rejectKey](#rejectkey)
   - [reject](#reject)
   - [withoutKey](#withoutkey)
+  - [without](#without)
 * [Truth](#truth)
   - [equalKey](#equalKey)
   - [ifThenElseWithKeys](#ifthenelsewithkeys)
@@ -201,6 +202,22 @@ Ember.Object.extend({
   items: [1, 2, 3],
   selectedItem: 1,
   remainingItems: withoutKey('items', 'selectedItem') // [2, 3]
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `without`
+
+Returns an array without an item by value.
+
+- `@param {String} collectionKey` The key name for the collection
+- `@param {String|Number} value` The value to exclude
+
+```js
+Ember.Object.extend({
+  items: [1, 2, 3],
+  remainingItems: without('items', 1) // [2, 3]
 });
 ```
 
