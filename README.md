@@ -48,8 +48,8 @@ export default Ember.Component.extend({
   - [rejectFromCollectionByValue](#rejectfromcollectionbyvalue)
   - [filterFromCollectionByKey](#filterfromcollectionbykey)
   - [filterFromCollectionByContains](#filterfromcollectionbycontains)
-  - [collectionWithoutKey](#collectionwithoutkey)
   - [reduceCollectionByKey](#reducecollectionbykey)
+  - [withoutKey](#withoutkey)
 * [Truth](#truth)
   - [equalKey](#equalKey)
   - [ifThenElseWithKeys](#ifthenelsewithkeys)
@@ -172,7 +172,7 @@ Ember.Object.extend({
 
 **[⬆ back to top](#available-macros)**
 
-#### `collectionWithoutKey`
+#### `withoutKey`
 
 Returns an array without an item by dependent key.
 
@@ -183,7 +183,7 @@ Returns an array without an item by dependent key.
 Ember.Object.extend({
   items: [1, 2, 3],
   selectedItem: 1,
-  remainingItems: collectionWithoutKey('items', 'selectedItem') // [2, 3]
+  remainingItems: withoutKey('items', 'selectedItem') // [2, 3]
 });
 ```
 

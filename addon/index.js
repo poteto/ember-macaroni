@@ -5,8 +5,8 @@ import rejectFromCollectionByKey from './macros/collection/reject-from-collectio
 import rejectFromCollectionByValue from './macros/collection/reject-from-collection-by-value';
 import filterFromCollectionByKey from './macros/collection/filter-from-collection-by-key';
 import filterFromCollectionByContains from './macros/collection/filter-from-collection-by-contains';
-import collectionWithoutKey from './macros/collection/collection-without-key';
 import reduceCollectionByKey from './macros/collection/reduce-collection-by-key';
+import withoutKey from './macros/collection/without-key';
 
 // truth
 import equalKey from './macros/truth/equal-key';
@@ -28,8 +28,8 @@ export {
   rejectFromCollectionByValue,
   filterFromCollectionByKey,
   filterFromCollectionByContains,
-  collectionWithoutKey,
   reduceCollectionByKey,
+  withoutKey,
   getPropertiesByKeys,
   joinWith,
   equalKey,
@@ -48,8 +48,8 @@ export default {
   rejectFromCollectionByValue,
   filterFromCollectionByKey,
   filterFromCollectionByContains,
-  collectionWithoutKey,
   reduceCollectionByKey,
+  withoutKey,
   getPropertiesByKeys,
   joinWith,
   equalKey,
