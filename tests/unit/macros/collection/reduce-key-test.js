@@ -9,21 +9,24 @@ const {
 
 module('ember-macaroni/collection - reduceKey');
 
-test('#reduceKey reduces a collection by a dependent key', (assert) => {
+test("#reduceKey reduces a collection by a dependent key's value", (assert) => {
   assert.expect(1);
 
-  const expectedResult = 100;
-  const Department = EmberObject.extend({
-    totalAge: reduceKey('employees', 'age')
+  const Foo = EmberObject.extend({
+    result: reduceKey('items', 'prop')
   });
-  const subject = Department.create({
-    employees: [
+  const bar = Foo.create({
+    items: [
       { id: 0, name: 'Michael Bolton', age: 25 },
       { id: 1, name: 'Tom Smykowski', age: 50 },
       { id: 2, name: 'Peter Gibbons', age: 25 }
-    ]
+    ],
+    prop: 'age'
   });
-  const result = get(subject, 'totalAge');
 
-  assert.equal(result, expectedResult, 'it returns the reduced value');
+  assert.equal(
+    get(bar, 'result'),
+    100,
+    'it returns the reduced value'
+  );
 });

@@ -140,16 +140,17 @@ Ember.Object.extend({
 
 #### `reduceKey`
 
-Combines the values of the enumerator into a single value, using a dependent key.
+Combines the values of the enumerator into a single value, using a dependent key to determine the property key.
 
 - `@param {String} collectionKey` The key name for the collection
-- `@param {String} dependentKey` The key name for the property to reduce
+- `@param {String} dependentKeyProp` The key name for the property to reduce
 - `@param {*} startValue` The initial value
 
 ```js
 Ember.Object.extend({
   items: [{ name: 'foo', age: 2 }, { name: 'bar', age: 5 }],
-  selectedItem: reduceKey('items', 'age', 0) // 7
+  prop: 'age',
+  selectedItem: reduceKey('items', 'prop', 0) // 7
 });
 ```
 
