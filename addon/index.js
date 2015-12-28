@@ -4,6 +4,7 @@ import filterKey from './macros/collection/filter-key';
 import findKey from './macros/collection/find-key';
 import find from './macros/collection/find';
 import reduceKey from './macros/collection/reduce-key';
+import reduce from './macros/collection/reduce';
 import rejectKey from './macros/collection/reject-key';
 import reject from './macros/collection/reject';
 import withoutKey from './macros/collection/without-key';
@@ -28,6 +29,7 @@ export {
   findKey,
   find,
   reduceKey,
+  reduce,
   rejectKey,
   reject,
   withoutKey,
@@ -49,6 +51,7 @@ export default {
   findKey,
   find,
   reduceKey,
+  reduce,
   rejectKey,
   reject,
   withoutKey,

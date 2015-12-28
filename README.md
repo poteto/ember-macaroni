@@ -47,6 +47,7 @@ export default Ember.Component.extend({
   - [findKey](#findkey)
   - [find](#find)
   - [reduceKey](#reducekey)
+  - [reduce](#reduce)
   - [rejectKey](#rejectkey)
   - [reject](#reject)
   - [withoutKey](#withoutkey)
@@ -151,6 +152,23 @@ Ember.Object.extend({
   items: [{ name: 'foo', age: 2 }, { name: 'bar', age: 5 }],
   prop: 'age',
   selectedItem: reduceKey('items', 'prop', 0) // 7
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `reduce`
+
+Combines the values of the enumerator into a single value, using a property.
+
+- `@param {String} collectionKey` The key name for the collection
+- `@param {String} property` The key name for the property to reduce
+- `@param {*} startValue` The initial value
+
+```js
+Ember.Object.extend({
+  items: [{ name: 'foo', age: 2 }, { name: 'bar', age: 5 }],
+  selectedItem: reduce('items', 'age', 0) // 7
 });
 ```
 
