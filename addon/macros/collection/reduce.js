@@ -16,14 +16,14 @@ const {
  * });
  *
  * @param {String} collectionKey The key name for the collection
- * @param {String} property The key name for the property to reduce
+ * @param {String} propName The key name for the property to reduce
  * @param {*} startValue The initial value
  */
-export default function reduce(collectionKey, property, startValue = 0) {
-  return computed(`${collectionKey}.@each.${property}`, {
+export default function reduce(collectionKey, propName, startValue = 0) {
+  return computed(`${collectionKey}.@each.${propName}`, {
     get() {
       return emberArray(get(this, collectionKey))
-        .reduce((total, current) => total + parseFloat(getWithDefault(current, property, 0)), startValue);
+        .reduce((total, current) => total + parseFloat(getWithDefault(current, propName, 0)), startValue);
     }
   });
 }

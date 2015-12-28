@@ -162,7 +162,7 @@ Ember.Object.extend({
 Combines the values of the enumerator into a single value, using a property.
 
 - `@param {String} collectionKey` The key name for the collection
-- `@param {String} property` The key name for the property to reduce
+- `@param {String} propName` The key name for the property to reduce
 - `@param {*} startValue` The initial value
 
 ```js
