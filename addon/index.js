@@ -4,9 +4,11 @@ import filterKey from './macros/collection/filter-key';
 import findKey from './macros/collection/find-key';
 import find from './macros/collection/find';
 import reduceKey from './macros/collection/reduce-key';
+import reduce from './macros/collection/reduce';
 import rejectKey from './macros/collection/reject-key';
 import reject from './macros/collection/reject';
 import withoutKey from './macros/collection/without-key';
+import without from './macros/collection/without';
 
 // truth
 import equalKey from './macros/truth/equal-key';
@@ -23,16 +25,18 @@ import joinWith from './macros/general/join-with';
 import join from './macros/general/join';
 
 export {
-  // collection
-  findFromCollectionByKey,
-  findFromCollectionByValue,
-  rejectFromCollectionByKey,
-  rejectFromCollectionByValue,
-  filterFromCollectionByKey,
-  filterFromCollectionByContains,
-  collectionWithoutKey,
-  reduceCollectionByKey,
-  // truth
+  filterContains,
+  filterKey,
+  findKey,
+  find,
+  reduceKey,
+  reduce,
+  rejectKey,
+  reject,
+  withoutKey,
+  without,
+  getPropertiesByKeys,
+  joinWith,
   equalKey,
   ternaryKey,
   ternary,
@@ -46,16 +50,18 @@ export {
 };
 
 export default {
-  // collection
-  findFromCollectionByKey,
-  findFromCollectionByValue,
-  rejectFromCollectionByKey,
-  rejectFromCollectionByValue,
-  filterFromCollectionByKey,
-  filterFromCollectionByContains,
-  collectionWithoutKey,
-  reduceCollectionByKey,
-  // truth
+  filterContains,
+  filterKey,
+  findKey,
+  find,
+  reduceKey,
+  reduce,
+  rejectKey,
+  reject,
+  withoutKey,
+  without,
+  getPropertiesByKeys,
+  joinWith,
   equalKey,
   ternaryKey,
   ternary,
