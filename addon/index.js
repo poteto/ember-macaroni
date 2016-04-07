@@ -10,8 +10,8 @@ import withoutKey from './macros/collection/without-key';
 
 // truth
 import equalKey from './macros/truth/equal-key';
-import ifThenElseWithKeys from './macros/truth/if-then-else-with-keys';
-import ifThenElseWithValues from './macros/truth/if-then-else-with-values';
+import ternaryKey from './macros/truth/ternary-key';
+import ternary from './macros/truth/ternary';
 import gteKey from './macros/truth/gte-key';
 import gtKey from './macros/truth/gt-key';
 import lteKey from './macros/truth/lte-key';
@@ -23,43 +23,47 @@ import joinWith from './macros/general/join-with';
 import join from './macros/general/join';
 
 export {
-  filterContains,
-  filterKey,
-  findKey,
-  find,
-  reduceKey,
-  rejectKey,
-  reject,
-  withoutKey,
-  getPropertiesByKeys,
-  joinWith,
-  join,
+  // collection
+  findFromCollectionByKey,
+  findFromCollectionByValue,
+  rejectFromCollectionByKey,
+  rejectFromCollectionByValue,
+  filterFromCollectionByKey,
+  filterFromCollectionByContains,
+  collectionWithoutKey,
+  reduceCollectionByKey,
+  // truth
   equalKey,
-  ifThenElseWithKeys,
-  ifThenElseWithValues,
+  ternaryKey,
+  ternary,
   gteKey,
   gtKey,
   lteKey,
-  ltKey
+  ltKey,
+  // general
+  getPropertiesByKeys,
+  joinWith
 };
 
 export default {
-  filterContains,
-  filterKey,
-  findKey,
-  find,
-  reduceKey,
-  rejectKey,
-  reject,
-  withoutKey,
-  getPropertiesByKeys,
-  joinWith,
-  join,
+  // collection
+  findFromCollectionByKey,
+  findFromCollectionByValue,
+  rejectFromCollectionByKey,
+  rejectFromCollectionByValue,
+  filterFromCollectionByKey,
+  filterFromCollectionByContains,
+  collectionWithoutKey,
+  reduceCollectionByKey,
+  // truth
   equalKey,
-  ifThenElseWithKeys,
-  ifThenElseWithValues,
+  ternaryKey,
+  ternary,
   gteKey,
   gtKey,
   lteKey,
-  ltKey
+  ltKey,
+  // general
+  getPropertiesByKeys,
+  joinWith
 };
