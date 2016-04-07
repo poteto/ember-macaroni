@@ -37,16 +37,14 @@ export {
   without,
   getPropertiesByKeys,
   joinWith,
+  join,
   equalKey,
   ternaryKey,
   ternary,
   gteKey,
   gtKey,
   lteKey,
-  ltKey,
-  // general
-  getPropertiesByKeys,
-  joinWith
+  ltKey
 };
 
 export default {
@@ -62,14 +60,12 @@ export default {
   without,
   getPropertiesByKeys,
   joinWith,
+  join,
   equalKey,
   ternaryKey,
   ternary,
   gteKey,
   gtKey,
   lteKey,
-  ltKey,
-  // general
-  getPropertiesByKeys,
-  joinWith
+  ltKey
 };
