@@ -9,16 +9,15 @@ const { computed } = Ember;
  * Ember.Object.extend({
  *   firstName: 'Derek',
  *   lastName: 'Zoolander',
- *   fullName: joinWith(' ', 'firstName', 'lastName') // 'Derek Zoolander'
+ *   fullName: join('firstName', 'lastName') // 'Derek Zoolander'
  * });
  *
- * @param {String} seperator Separator to join values with
  * @param {...rest} dependentKeys Argument list of dependent keys
- */
-export default function joinWith(separator, ...dependentKeys) {
+*/
+export default function join(...dependentKeys) {
   const computedFunc = computed({
     get() {
-      return joinUtil(this, separator, ...dependentKeys);
+      return joinUtil(this, null, ...dependentKeys);
     }
   });
 

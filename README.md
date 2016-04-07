@@ -61,6 +61,7 @@ export default Ember.Component.extend({
 * [General](#general)
   - [getPropertiesByKeys](#getpropertiesbykeys)
   - [joinWith](#joinwith)
+  - [join](#join)
 
 ---
 
@@ -363,6 +364,22 @@ Ember.Object.extend({
   firstName: 'Derek',
   lastName: 'Zoolander',
   fullName: joinWith(' ', 'firstName', 'lastName') // 'Derek Zoolander'
+});
+```
+
+**[⬆ back to top](#available-macros)**
+
+#### `join`
+
+Returns a string of values joined together with a default separator (" ").
+
+- `@param {...rest} dependentKeys` Argument list of dependent keys
+
+```js
+Ember.Object.extend({
+  firstName: 'Derek',
+  lastName: 'Zoolander',
+  fullName: join('firstName', 'lastName') // 'Derek Zoolander'
 });
 ```
 

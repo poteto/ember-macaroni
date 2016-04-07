@@ -20,6 +20,7 @@ import ltKey from './macros/truth/lt-key';
 // general
 import getPropertiesByKeys from './macros/general/get-properties-by-keys';
 import joinWith from './macros/general/join-with';
+import join from './macros/general/join';
 
 export {
   filterContains,
@@ -32,6 +33,7 @@ export {
   withoutKey,
   getPropertiesByKeys,
   joinWith,
+  join,
   equalKey,
   ifThenElseWithKeys,
   ifThenElseWithValues,
@@ -52,6 +54,7 @@ export default {
   withoutKey,
   getPropertiesByKeys,
   joinWith,
+  join,
   equalKey,
   ifThenElseWithKeys,
   ifThenElseWithValues,
