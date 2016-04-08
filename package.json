@@ -1,7 +1,7 @@
 {
   "name": "ember-macaroni",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.2.1",
+  "description": "Keep your app code DRY and copypasta free with computed property macaronis (macros)",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,11 +11,13 @@
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": "https://github.com/poteto/ember-macaroni",
+  "bugs": "https://github.com/poteto/ember-macaroni/issues",
+  "homepage": "https://github.com/poteto/ember-macaroni",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Lauren Tan",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
@@ -39,7 +41,12 @@
     "loader.js": "^4.0.1"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "computed property macros",
+    "macros",
+    "macaroni",
+    "ember macaroni",
+    "functional macros"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6"
