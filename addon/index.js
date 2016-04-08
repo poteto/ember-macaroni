@@ -25,6 +25,7 @@ import joinWith from './macros/general/join-with';
 import join from './macros/general/join';
 
 export {
+  // collection
   filterContains,
   filterKey,
   findKey,
@@ -35,19 +36,22 @@ export {
   reject,
   withoutKey,
   without,
-  getPropertiesByKeys,
-  joinWith,
-  join,
+  // truth
   equalKey,
   ternaryKey,
   ternary,
   gteKey,
   gtKey,
   lteKey,
-  ltKey
+  ltKey,
+  // general
+  getPropertiesByKeys,
+  join,
+  joinWith
 };
 
 export default {
+  // collection
   filterContains,
   filterKey,
   findKey,
@@ -58,14 +62,16 @@ export default {
   reject,
   withoutKey,
   without,
-  getPropertiesByKeys,
-  joinWith,
-  join,
+  // truth
   equalKey,
   ternaryKey,
   ternary,
   gteKey,
   gtKey,
   lteKey,
-  ltKey
+  ltKey,
+  // general
+  getPropertiesByKeys,
+  join,
+  joinWith
 };
