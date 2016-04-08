@@ -1,15 +1,15 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { rejectFromCollectionByKey } from 'ember-macaroni';
+import { rejectKey } from 'ember-macaroni';
 
 const {
   Object: EmberObject,
   get
 } = Ember;
 
-module('ember-macaroni/collection - rejectFromCollectionByKey');
+module('ember-macaroni/collection - rejectKey');
 
-test('#rejectFromCollectionByKey rejects an item from a collection with a dependent key', (assert) => {
+test('#rejectKey rejects an item from a collection with a dependent key', (assert) => {
   assert.expect(1);
 
   const expectedResult = [
@@ -17,7 +17,7 @@ test('#rejectFromCollectionByKey rejects an item from a collection with a depend
     { id: 2, name: 'Peter Gibbons' }
   ];
   const Department = EmberObject.extend({
-    remainingEmployees: rejectFromCollectionByKey('employees', 'name', 'terminatedEmployeeName')
+    remainingEmployees: rejectKey('employees', 'name', 'terminatedEmployeeName')
   });
   const subject = Department.create({
     terminatedEmployeeName: 'Michael Bolton',

@@ -1,15 +1,15 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { collectionWithoutKey } from 'ember-macaroni';
+import { withoutKey } from 'ember-macaroni';
 
 const {
   Object: EmberObject,
   get
 } = Ember;
 
-module('ember-macaroni/collection - collectionWithoutKey');
+module('ember-macaroni/collection - withoutKey');
 
-test('#collectionWithoutKey returns the collection without the item by key', (assert) => {
+test('#withoutKey returns the collection without the item by key', (assert) => {
   assert.expect(1);
 
   const employees = [
@@ -22,7 +22,7 @@ test('#collectionWithoutKey returns the collection without the item by key', (as
     { id: 2, name: 'Peter Gibbons' }
   ];
   const Department = EmberObject.extend({
-    remainingEmployees: collectionWithoutKey('employees', 'selectedEmployee')
+    remainingEmployees: withoutKey('employees', 'selectedEmployee')
   });
   const subject = Department.create({
     employees,

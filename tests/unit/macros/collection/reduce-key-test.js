@@ -1,20 +1,20 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { reduceCollectionByKey } from 'ember-macaroni';
+import { reduceKey } from 'ember-macaroni';
 
 const {
   Object: EmberObject,
   get
 } = Ember;
 
-module('ember-macaroni/collection - reduceCollectionByKey');
+module('ember-macaroni/collection - reduceKey');
 
-test('#reduceCollectionByKey reduces a collection by a dependent key', (assert) => {
+test('#reduceKey reduces a collection by a dependent key', (assert) => {
   assert.expect(1);
 
   const expectedResult = 100;
   const Department = EmberObject.extend({
-    totalAge: reduceCollectionByKey('employees', 'age')
+    totalAge: reduceKey('employees', 'age')
   });
   const subject = Department.create({
     employees: [

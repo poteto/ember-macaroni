@@ -11,14 +11,14 @@ const {
  *
  * Ember.Object.extend({
  *   items: [{ id: 1, name: 'foo' }, { id: 2, name: 'bar' }],
- *   selectedItem: rejectFromCollectionByValue('items', 'id', 2) // [{ id: 1, name: 'foo' }]
+ *   selectedItem: reject('items', 'id', 2) // [{ id: 1, name: 'foo' }]
  * });
  *
  * @param {String} collectionKey The key name for the collection
  * @param {String} propName The key name for the property to reject by
  * @param {*} value The value to reject
-*/
-export default function rejectFromCollectionByValue(collectionKey, propName, value) {
+ */
+export default function reject(collectionKey, propName, value) {
   return computed(`${collectionKey}.@each.${propName}`, {
     get() {
       return emberArray(get(this, collectionKey))
