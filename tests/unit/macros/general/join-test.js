@@ -11,7 +11,6 @@ module('ember-macaroni/general - join');
 
 test('#join returns a string of values joined with a separator', (assert) => {
   assert.expect(1);
-
   const expectedResult = 'Bill Lumbergh';
   const Employee = EmberObject.extend({
     fullName: join('firstName', 'lastName')
