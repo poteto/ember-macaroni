@@ -18,6 +18,17 @@
     "node": ">= 0.10.0"
   },
   "author": "Lauren Tan",
+  "contributors": [
+    {
+      "name": "Rob Hilgefort",
+      "email": "rjhilgefort@gmail.com",
+      "url": "https://github.com/rjhilgefort"
+    },
+    {
+      "name": "Nick Jutte",
+      "url": "https://github.com/njutte"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
