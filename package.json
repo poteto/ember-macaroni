@@ -1,6 +1,6 @@
 {
   "name": "ember-macaroni",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Keep your app code DRY and copypasta free with computed property macaronis (macros)",
   "directories": {
     "doc": "doc",
