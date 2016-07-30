@@ -12,14 +12,14 @@ const {
  *
  * Ember.Object.extend({
  *   items: [{ name: 'foo', age: 2 }, { name: 'bar', age: 5 }],
- *   selectedItem: reduceCollectionByKey('items', 'age', 0) // 7
+ *   selectedItem: reduceKey('items', 'age', 0) // 7
  * });
  *
  * @param {String} collectionKey The key name for the collection
  * @param {String} dependentKey The key name for the property to reduce
  * @param {*} startValue The initial value
-*/
-export default function reduceCollectionByKey(collectionKey, dependentKey, startValue = 0) {
+ */
+export default function reduceKey(collectionKey, dependentKey, startValue = 0) {
   return computed(`${collectionKey}.@each.${dependentKey}`, {
     get() {
       return emberArray(get(this, collectionKey))

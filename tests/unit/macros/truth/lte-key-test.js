@@ -1,20 +1,20 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { gte } from 'ember-macaroni';
+import { lteKey } from 'ember-macaroni';
 
 const {
   Object: EmberObject,
   get
 } = Ember;
 
-module('ember-macaroni/truth - gte');
+module('ember-macaroni/truth - lteKey');
 
-test('#gte returns true if the left hand is greater than the right hand', (assert) => {
+test('#lteKey returns true if the left hand is not lesser or equal to the right hand', (assert) => {
   assert.expect(1);
 
   const expectedResult = true;
   const Employee = EmberObject.extend({
-    isUnderRetirementAge: gte('retirementAge', 'age')
+    isUnderRetirementAge: lteKey('age', 'retirementAge')
   });
   const subject = Employee.create({
     age: 50,
@@ -25,12 +25,12 @@ test('#gte returns true if the left hand is greater than the right hand', (asser
   assert.equal(result, expectedResult, 'it returns true');
 });
 
-test('#gte returns true if the left hand is equal to the right hand', (assert) => {
+test('#lteKey returns true if the left hand is equal to the right hand', (assert) => {
   assert.expect(1);
 
   const expectedResult = true;
   const Employee = EmberObject.extend({
-    isUnderRetirementAge: gte('retirementAge', 'age')
+    isUnderRetirementAge: lteKey('age', 'retirementAge')
   });
   const subject = Employee.create({
     age: 65,
@@ -41,15 +41,15 @@ test('#gte returns true if the left hand is equal to the right hand', (assert) =
   assert.equal(result, expectedResult, 'it returns true');
 });
 
-test('#gte returns false if the left hand is not greater or equal to the right hand', (assert) => {
+test('#lteKey returns false if the left hand is not lesser or equal to the right hand', (assert) => {
   assert.expect(1);
 
   const expectedResult = false;
   const Employee = EmberObject.extend({
-    isOverRetirementAge: gte('age', 'retirementAge')
+    isOverRetirementAge: lteKey('retirementAge', 'age')
   });
   const subject = Employee.create({
-    age: 64,
+    age: 50,
     retirementAge: 65
   });
   const result = get(subject, 'isOverRetirementAge');
