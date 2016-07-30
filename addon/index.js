@@ -1,3 +1,4 @@
+// collection
 import findFromCollectionByKey from './macros/collection/find-from-collection-by-key';
 import findFromCollectionByValue from './macros/collection/find-from-collection-by-value';
 import rejectFromCollectionByKey from './macros/collection/reject-from-collection-by-key';
@@ -7,18 +8,21 @@ import filterFromCollectionByContains from './macros/collection/filter-from-coll
 import collectionWithoutKey from './macros/collection/collection-without-key';
 import reduceCollectionByKey from './macros/collection/reduce-collection-by-key';
 
-import isEqualByKeys from './macros/truth/is-equal-by-keys';
-import ifThenElseWithKeys from './macros/truth/if-then-else-with-keys';
-import ifThenElseWithValues from './macros/truth/if-then-else-with-values';
-import gte from './macros/truth/gte';
-import gt from './macros/truth/gt';
-import lte from './macros/truth/lte';
-import lt from './macros/truth/lt';
+// truth
+import equalKey from './macros/truth/equal-key';
+import ternaryKey from './macros/truth/ternary-key';
+import ternary from './macros/truth/ternary';
+import gteKey from './macros/truth/gte-key';
+import gtKey from './macros/truth/gt-key';
+import lteKey from './macros/truth/lte-key';
+import ltKey from './macros/truth/lt-key';
 
+// general
 import getPropertiesByKeys from './macros/general/get-properties-by-keys';
 import joinWith from './macros/general/join-with';
 
 export {
+  // collection
   findFromCollectionByKey,
   findFromCollectionByValue,
   rejectFromCollectionByKey,
@@ -27,18 +31,21 @@ export {
   filterFromCollectionByContains,
   collectionWithoutKey,
   reduceCollectionByKey,
+  // truth
+  equalKey,
+  ternaryKey,
+  ternary,
+  gteKey,
+  gtKey,
+  lteKey,
+  ltKey,
+  // general
   getPropertiesByKeys,
-  joinWith,
-  isEqualByKeys,
-  ifThenElseWithKeys,
-  ifThenElseWithValues,
-  gte,
-  gt,
-  lte,
-  lt
+  joinWith
 };
 
 export default {
+  // collection
   findFromCollectionByKey,
   findFromCollectionByValue,
   rejectFromCollectionByKey,
@@ -47,13 +54,15 @@ export default {
   filterFromCollectionByContains,
   collectionWithoutKey,
   reduceCollectionByKey,
+  // truth
+  equalKey,
+  ternaryKey,
+  ternary,
+  gteKey,
+  gtKey,
+  lteKey,
+  ltKey,
+  // general
   getPropertiesByKeys,
-  joinWith,
-  isEqualByKeys,
-  ifThenElseWithKeys,
-  ifThenElseWithValues,
-  gte,
-  gt,
-  lte,
-  lt
+  joinWith
 };
