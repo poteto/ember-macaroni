@@ -1,3 +1,4 @@
+// collection
 import findFromCollectionByKey from './macros/collection/find-from-collection-by-key';
 import findFromCollectionByValue from './macros/collection/find-from-collection-by-value';
 import rejectFromCollectionByKey from './macros/collection/reject-from-collection-by-key';
@@ -7,16 +8,19 @@ import filterFromCollectionByContains from './macros/collection/filter-from-coll
 import collectionWithoutKey from './macros/collection/collection-without-key';
 import reduceCollectionByKey from './macros/collection/reduce-collection-by-key';
 
-import isEqualByKeys from './macros/truth/is-equal-by-keys';
+// truth
+import equalKey from './macros/truth/equal-key';
 import ifThenElseWithKeys from './macros/truth/if-then-else-with-keys';
 import ifThenElseWithValues from './macros/truth/if-then-else-with-values';
-import gte from './macros/truth/gte';
-import gt from './macros/truth/gt';
-import lte from './macros/truth/lte';
-import lt from './macros/truth/lt';
+import gteKey from './macros/truth/gte-key';
+import gtKey from './macros/truth/gt-key';
+import lteKey from './macros/truth/lte-key';
+import ltKey from './macros/truth/lt-key';
 
+// general
 import getPropertiesByKeys from './macros/general/get-properties-by-keys';
 import joinWith from './macros/general/join-with';
+import join from './macros/general/join';
 
 export {
   findFromCollectionByKey,
@@ -29,13 +33,14 @@ export {
   reduceCollectionByKey,
   getPropertiesByKeys,
   joinWith,
-  isEqualByKeys,
+  join,
+  equalKey,
   ifThenElseWithKeys,
   ifThenElseWithValues,
-  gte,
-  gt,
-  lte,
-  lt
+  gteKey,
+  gtKey,
+  lteKey,
+  ltKey
 };
 
 export default {
@@ -49,11 +54,12 @@ export default {
   reduceCollectionByKey,
   getPropertiesByKeys,
   joinWith,
-  isEqualByKeys,
+  join,
+  equalKey,
   ifThenElseWithKeys,
   ifThenElseWithValues,
-  gte,
-  gt,
-  lte,
-  lt
+  gteKey,
+  gtKey,
+  lteKey,
+  ltKey
 };
