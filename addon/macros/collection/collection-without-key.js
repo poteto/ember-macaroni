@@ -16,8 +16,7 @@ const {
  * });
  *
  * @param {String} collectionKey The key name for the collection
- * @param {String} propName The key name for the property to filter by
- * @param {Array} values The array of values to filter
+ * @param {String} dependentKey The key name for the property to exclude
 */
 export default function collectionWithoutKey(collectionKey, dependentKey) {
   return computed(`${collectionKey}.[]`, dependentKey, {
