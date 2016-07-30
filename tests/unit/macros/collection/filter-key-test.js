@@ -1,15 +1,15 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { filterFromCollectionByKey } from 'ember-macaroni';
+import { filterKey } from 'ember-macaroni';
 
 const {
   Object: EmberObject,
   get
 } = Ember;
 
-module('ember-macaroni/collection - filterFromCollectionByKey');
+module('ember-macaroni/collection - filterKey');
 
-test('#filterFromCollectionByKey filters an item from a collection with a dependent key', (assert) => {
+test('#filterKey filters an item from a collection with a dependent key', (assert) => {
   assert.expect(1);
 
   const expectedResult = [
@@ -17,7 +17,7 @@ test('#filterFromCollectionByKey filters an item from a collection with a depend
     { id: 2, name: 'Peter Gibbons', age: 25 }
   ];
   const Department = EmberObject.extend({
-    selectedEmployees: filterFromCollectionByKey('employees', 'age', 'selectedAge')
+    selectedEmployees: filterKey('employees', 'age', 'selectedAge')
   });
   const subject = Department.create({
     selectedAge: 25,

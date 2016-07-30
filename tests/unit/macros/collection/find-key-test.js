@@ -1,20 +1,20 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { findFromCollectionByKey } from 'ember-macaroni';
+import { findKey } from 'ember-macaroni';
 
 const {
   Object: EmberObject,
   get
 } = Ember;
 
-module('ember-macaroni/collection - findFromCollectionByKey');
+module('ember-macaroni/collection - findKey');
 
-test('#findFromCollectionByKey finds an item from a collection with a dependent key', (assert) => {
+test('#findKey finds an item from a collection with a dependent key', (assert) => {
   assert.expect(1);
 
   const expectedResult = { id: 1, name: 'Tom Smykowski' };
   const Department = EmberObject.extend({
-    selectedEmployee: findFromCollectionByKey('employees', 'id', 'selectedEmployeeId')
+    selectedEmployee: findKey('employees', 'id', 'selectedEmployeeId')
   });
   const subject = Department.create({
     selectedEmployeeId: 1,

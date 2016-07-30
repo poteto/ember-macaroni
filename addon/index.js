@@ -1,59 +1,68 @@
-import findFromCollectionByKey from './macros/collection/find-from-collection-by-key';
-import findFromCollectionByValue from './macros/collection/find-from-collection-by-value';
-import rejectFromCollectionByKey from './macros/collection/reject-from-collection-by-key';
-import rejectFromCollectionByValue from './macros/collection/reject-from-collection-by-value';
-import filterFromCollectionByKey from './macros/collection/filter-from-collection-by-key';
-import filterFromCollectionByContains from './macros/collection/filter-from-collection-by-contains';
-import collectionWithoutKey from './macros/collection/collection-without-key';
-import reduceCollectionByKey from './macros/collection/reduce-collection-by-key';
+// collection
+import filterContains from './macros/collection/filter-contains';
+import filterKey from './macros/collection/filter-key';
+import findKey from './macros/collection/find-key';
+import find from './macros/collection/find';
+import reduceKey from './macros/collection/reduce-key';
+import reduce from './macros/collection/reduce';
+import rejectKey from './macros/collection/reject-key';
+import reject from './macros/collection/reject';
+import withoutKey from './macros/collection/without-key';
+import without from './macros/collection/without';
 
-import isEqualByKeys from './macros/truth/is-equal-by-keys';
+// truth
+import equalKey from './macros/truth/equal-key';
 import ifThenElseWithKeys from './macros/truth/if-then-else-with-keys';
 import ifThenElseWithValues from './macros/truth/if-then-else-with-values';
-import gte from './macros/truth/gte';
-import gt from './macros/truth/gt';
-import lte from './macros/truth/lte';
-import lt from './macros/truth/lt';
+import gteKey from './macros/truth/gte-key';
+import gtKey from './macros/truth/gt-key';
+import lteKey from './macros/truth/lte-key';
+import ltKey from './macros/truth/lt-key';
 
+// general
 import getPropertiesByKeys from './macros/general/get-properties-by-keys';
 import joinWith from './macros/general/join-with';
 
 export {
-  findFromCollectionByKey,
-  findFromCollectionByValue,
-  rejectFromCollectionByKey,
-  rejectFromCollectionByValue,
-  filterFromCollectionByKey,
-  filterFromCollectionByContains,
-  collectionWithoutKey,
-  reduceCollectionByKey,
+  filterContains,
+  filterKey,
+  findKey,
+  find,
+  reduceKey,
+  reduce,
+  rejectKey,
+  reject,
+  withoutKey,
+  without,
   getPropertiesByKeys,
   joinWith,
-  isEqualByKeys,
+  equalKey,
   ifThenElseWithKeys,
   ifThenElseWithValues,
-  gte,
-  gt,
-  lte,
-  lt
+  gteKey,
+  gtKey,
+  lteKey,
+  ltKey
 };
 
 export default {
-  findFromCollectionByKey,
-  findFromCollectionByValue,
-  rejectFromCollectionByKey,
-  rejectFromCollectionByValue,
-  filterFromCollectionByKey,
-  filterFromCollectionByContains,
-  collectionWithoutKey,
-  reduceCollectionByKey,
+  filterContains,
+  filterKey,
+  findKey,
+  find,
+  reduceKey,
+  reduce,
+  rejectKey,
+  reject,
+  withoutKey,
+  without,
   getPropertiesByKeys,
   joinWith,
-  isEqualByKeys,
+  equalKey,
   ifThenElseWithKeys,
   ifThenElseWithValues,
-  gte,
-  gt,
-  lte,
-  lt
+  gteKey,
+  gtKey,
+  lteKey,
+  ltKey
 };

@@ -1,20 +1,20 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { findFromCollectionByValue } from 'ember-macaroni';
+import { find } from 'ember-macaroni';
 
 const {
   Object: EmberObject,
   get
 } = Ember;
 
-module('ember-macaroni/collection - findFromCollectionByValue');
+module('ember-macaroni/collection - find');
 
-test('#findFromCollectionByValue finds an item from a collection with a value', (assert) => {
+test('#find finds an item from a collection with a value', (assert) => {
   assert.expect(1);
 
   const expectedResult = { id: 1, name: 'Tom Smykowski' };
   const Department = EmberObject.extend({
-    selectedEmployee: findFromCollectionByValue('employees', 'id', 1)
+    selectedEmployee: find('employees', 'id', 1)
   });
   const subject = Department.create({
     selectedEmployeeId: 1,
