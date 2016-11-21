@@ -1,8 +1,10 @@
-# ember-macaroni [![npm version](https://badge.fury.io/js/ember-macaroni.svg)](http://badge.fury.io/js/ember-macaroni) [![Build Status](https://travis-ci.org/poteto/ember-macaroni.svg?branch=master)](https://travis-ci.org/poteto/ember-macaroni) [![Ember Observer Score](http://emberobserver.com/badges/ember-macaroni.svg)](http://emberobserver.com/addons/ember-macaroni)
+<img src="http://i.imgur.com/XV4VFJl.jpg" title="Macaroni" align="right" width="33%">
+
+# ember-macaroni
+
+[![npm version](https://badge.fury.io/js/ember-macaroni.svg)](http://badge.fury.io/js/ember-macaroni) [![Build Status](https://travis-ci.org/poteto/ember-macaroni.svg?branch=master)](https://travis-ci.org/poteto/ember-macaroni) [![Ember Observer Score](http://emberobserver.com/badges/ember-macaroni.svg)](http://emberobserver.com/addons/ember-macaroni)
 
 Keep your app code DRY and copypasta free with computed property <strong>mac</strong>a<strong>ro</strong>ni<strong>s</strong> (macros) for Ember.js 1.13.x and greater. 
-
-![](http://i.imgur.com/XV4VFJl.jpg)
 
 ## Why
 Computed property macros (CPM) are great for DRYing up your code, and Ember.js ships with a [few handy computed macros](http://emberjs.com/api/classes/Ember.computed.html). This addon adds a few more functional-style macros, and can be thought of as the "lodash equivalent" of Ember CPM libraries.
