@@ -1,15 +1,15 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { filterFromCollectionByContains } from 'ember-macaroni';
+import { filterFromCollectionByIncludes } from 'ember-macaroni';
 
 const {
   Object: EmberObject,
   get
 } = Ember;
 
-module('ember-macaroni/collection - filterFromCollectionByContains');
+module('ember-macaroni/collection - filterFromCollectionByIncludes');
 
-test('#filterFromCollectionByContains filters a collection by an array of values for a given property', (assert) => {
+test('#filterFromCollectionByIncludes filters a collection by an array of values for a given property', (assert) => {
   assert.expect(1);
 
   const expectedResult = [
@@ -22,7 +22,7 @@ test('#filterFromCollectionByContains filters a collection by an array of values
     { name: 'Jake', type: 'adventureTime' }
   ];
   const Tommy = EmberObject.extend({
-    friends: filterFromCollectionByContains('characters', 'type', ['rugrats', 'RUGRATS'])
+    friends: filterFromCollectionByIncludes('characters', 'type', ['rugrats', 'RUGRATS'])
   });
   const subject = Tommy.create({ characters });
   const result = get(subject, 'friends');
