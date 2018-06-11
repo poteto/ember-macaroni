@@ -3,7 +3,7 @@ import findFromCollectionByValue from './macros/collection/find-from-collection-
 import rejectFromCollectionByKey from './macros/collection/reject-from-collection-by-key';
 import rejectFromCollectionByValue from './macros/collection/reject-from-collection-by-value';
 import filterFromCollectionByKey from './macros/collection/filter-from-collection-by-key';
-import filterFromCollectionByContains from './macros/collection/filter-from-collection-by-contains';
+import filterFromCollectionByIncludes from './macros/collection/filter-from-collection-by-includes';
 import collectionWithoutKey from './macros/collection/collection-without-key';
 import reduceCollectionByKey from './macros/collection/reduce-collection-by-key';
 
@@ -24,7 +24,7 @@ export {
   rejectFromCollectionByKey,
   rejectFromCollectionByValue,
   filterFromCollectionByKey,
-  filterFromCollectionByContains,
+  filterFromCollectionByIncludes,
   collectionWithoutKey,
   reduceCollectionByKey,
   getPropertiesByKeys,
@@ -44,7 +44,7 @@ export default {
   rejectFromCollectionByKey,
   rejectFromCollectionByValue,
   filterFromCollectionByKey,
-  filterFromCollectionByContains,
+  filterFromCollectionByIncludes,
   collectionWithoutKey,
   reduceCollectionByKey,
   getPropertiesByKeys,
